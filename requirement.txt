@@ -1,0 +1,4 @@
+arrow 
+mysql.connector
+pandas
+argparse

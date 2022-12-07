@@ -39,8 +39,12 @@ query_inject_ability = """
     values (%(name)s,%(serial)s,%(ability)s,%(slot)s,%(ability_order)s)
 """
 
+query_ability = """
+    Select * from ability_1 where ability = "%(delete_ability)s";
+"""
+
 query_temp_table_pokedex = """
-Select 
+with pokedex as (Select 
 	bd.name, 
     bd.serial, 
     skill_1.ability as ability_1, 
@@ -61,23 +65,22 @@ left join
 left join 
 	ability_1 skill_3 
 	on bd.serial = skill_3.serial 
-    and skill_3.ability_order = 3 
+    and skill_3.ability_order = 3 )
+select * from pokedex
 """
 
 query_ability_1 = f"""
-with temp_1 as 
-    ({query_temp_table_pokedex})
-select * from temp_1 where ability_1 is not null and ability_2 is null;
+{query_temp_table_pokedex} where ability_1 is not null and ability_2 is null;
 """
 
 query_ability_2 = f"""
-with temp_1 as 
-    ({query_temp_table_pokedex})
-select * from temp_1 where ability_2 is not null and ability_3 is null;
+{query_temp_table_pokedex} where ability_2 is not null and ability_3 is null;
 """
 
 query_ability_3 = f"""
-with temp_1 as 
-    ({query_temp_table_pokedex})
-select * from temp_1 where ability_3 is not null;
+{query_temp_table_pokedex} where ability_3 is not null;
+"""
+
+query_rank_ability_asc = f"""
+{query_temp_table_pokedex} order by ability_2 IS NULL asc,ability_3 IS NULL asc
 """
