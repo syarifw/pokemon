@@ -16,10 +16,10 @@ Scripting exercise to consume pokeapi
 3. Run `python migrate_to_mysql.py`
 
 ### Step by Step
-1. Run `python main.py -p` to get all pokedex data within suitable columns with acceptance criteria
-2. Use `-f args` or `--filtering args` to specify the default filtering on pokedex data (args: ability_1, ability_2, ability_3, rank_ability_asc)
-3. Use `-c args` or `--custom args` to get pokedex data with specify where condition. Plis user (ex: "serial='pidgeot18' limit 1")
-4. Use `-d ability_name` or `--delete-ability ability_name` to delete the ability for all pokemon on pokedex
-5. Use `-i "new_ability|'pokemon1','pokemon2',..'pokemon-n'"` or `--insert-ability "new_ability|'pokemon1','pokemon2',..'pokemon-n'` to insert new ability to several pokemon. Don't forget to use same command format
+1. Run `python main.py -p` to get all pokedex data within suitable columns with acceptance criteria. NOTE: This is also Default Command. So, don't forgot put in it as a prefix on your command on CLI
+2. Add `-f args` or `--filtering args` to specify the default filtering on pokedex data (args: ability_1, ability_2, ability_3, rank_ability_asc)
+3. Add `-c args` or `--custom args` to get pokedex data with specify where condition. Plis user (ex: "serial='pidgeot18' limit 1")
+4. Add `-d ability_name` or `--delete-ability ability_name` to delete the ability for all pokemon on pokedex
+5. Add `-i "new_ability|'pokemon1','pokemon2',..'pokemon-n'"` or `--insert-ability "new_ability|'pokemon1','pokemon2',..'pokemon-n'` to insert new ability to several pokemon. Don't forget to use same command format
 6. for filtering & custom command, csv file will be generated to "output" folder
 7. After you finish, run `deactivate` to terminate the virtualenv
